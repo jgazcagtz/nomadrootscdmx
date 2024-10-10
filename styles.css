@@ -718,13 +718,13 @@
     font-family: var(--font-family);
     font-size: 1em;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    position: fixed;
+    position: relative;
     overflow: hidden;
   }
 
   .footer::before {
     content: "";
-    position: fixed;
+    position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
