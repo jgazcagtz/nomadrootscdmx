@@ -718,7 +718,7 @@
     font-family: var(--font-family);
     font-size: 1em;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    position: relative;
+    position: fixed;
     overflow: hidden;
   }
 
