@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nomad Roots CDMX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Nomad Roots CDMX</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#" onclick="showMainMenu()">- Home</a>
+      <a href="#" onclick="showAboutUs()">- About Us</a>
+      <a href="#" onclick="showMap()">- Map</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      Welcome! <span>🍊</span>
+    
+    </header>
+  <p>
+        Nomad Roots CDMX supports digital nomads in Mexico City with tips and useful information to help in their stay. </p><br><p>We aim to create a welcoming community by providing resources, connecting nomads with local services, and fostering a network of like-minded individuals to enhance your experience in this vibrant city.
+      </p><br>
+    <!-- Category Buttons -->
+   <button class="category-button" onclick="showCategory('accommodations')">Accommodation <span>🏨</span></button>
+<button class="category-button" onclick="showCategory('art')">Art & Culture <span>🎨</span></button>
+<button class="category-button" onclick="showCategory('coworking')">Coworking <span>💻</span></button>
+<button class="category-button" onclick="showCategory('events')">Events <span>🎟️</span></button>
+<button class="category-button" onclick="showCategory('nightlife')">Nightlife <span>🎉</span></button>
+<button class="category-button" onclick="showCategory('restaurants')">Restaurants <span>🍽️</span></button>
+<button class="category-button" onclick="showCategory('safety')">Safety <span>🛡️</span></button>
+<button class="category-button" onclick="showCategory('shopping')">Shopping <span>🛍️</span></button>
+<button class="category-button" onclick="showCategory('transportation')">Transportation <span>🚌</span></button>
+<button class="category-button" onclick="showCategory('wellness')">Wellness <span>💆‍♀️</span></button>
+
+
+    <!-- Content Areas -->
+    <div id="cardContainer" class="card-container active"></div>
+    <div id="detailedView" class="detailed-view"></div>
+    <div id="aboutUs" class="about-us">
+      <h2>About Us</h2>
+      <p>
+        Nomad Roots CDMX supports digital nomads in Mexico City with tips and useful information to help in their stay. We aim to create a welcoming community by providing resources, connecting nomads with local services, and fostering a network of like-minded individuals to enhance your experience in this vibrant city.
+      </p>
+    </div>
+    <div id="mapSection" class="map-section">
+      <!-- Google Map will be embedded here -->
+      <div id="map" style="width: 100%; height: 100%;"></div>
+    </div>
+    <button class="back-button" onclick="showMainMenu()" style="display: none;">⬅️ Back</button>
+  </div>
+<!-- Footer -->
+<footer class="footer">
+  Hecho con ❤️ in Mexico
+</footer>
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE2DkEup7b2IIybNuI_KtToUNC_ontN2c&callback=initMap">
+  </script>
+</body>
+  </body>
+</html>
