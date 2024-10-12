@@ -1,94 +1,99 @@
 function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-    }
+  const navLinks = document.getElementById('navLinks');
+  navLinks.classList.toggle('active');
+}
 
-    // Show About Us Section
-    function showAboutUs() {
-      document.querySelector('.back-button').style.display = 'block';
-      document.getElementById("aboutUs").classList.add("active");
-      document.getElementById("cardContainer").classList.remove("active");
-      document.getElementById("detailedView").classList.remove("active");
-      document.getElementById("mapSection").classList.remove("active");
-      // Close the menu if open
-      toggleMenu();
-    }
+// Show About Us Section
+function showAboutUs() {
+  document.querySelector('.back-button').style.display = 'block';
+  document.getElementById("aboutUs").classList.add("active");
+  document.getElementById("cardContainer").classList.remove("active");
+  document.getElementById("detailedView").classList.remove("active");
+  document.getElementById("mapSection").classList.remove("active");
+  // Close the menu if open
+  toggleMenu();
+}
 
-    // Show Map Section
-    function showMap() {
-      document.querySelector('.back-button').style.display = 'block';
-      document.getElementById("mapSection").classList.add("active");
-      document.getElementById("cardContainer").classList.remove("active");
-      document.getElementById("detailedView").classList.remove("active");
-      document.getElementById("aboutUs").classList.remove("active");
-      // Close the menu if open
-      toggleMenu();
-      initMap(); // Initialize the map when the map section is shown
-    }
+// Show Map Section
+function showMap() {
+  document.querySelector('.back-button').style.display = 'block';
+  document.getElementById("mapSection").classList.add("active");
+  document.getElementById("cardContainer").classList.remove("active");
+  document.getElementById("detailedView").classList.remove("active");
+  document.getElementById("aboutUs").classList.remove("active");
+  // Close the menu if open
+  toggleMenu();
+  initMap(); // Initialize the map when the map section is shown
+}
 
-    // Show Main Menu
-    function showMainMenu() {
-      document.querySelector('.back-button').style.display = 'none';
-      document.getElementById("cardContainer").classList.add("active");
-      document.getElementById("detailedView").classList.remove("active");
-      document.getElementById("aboutUs").classList.remove("active");
-      document.getElementById("mapSection").classList.remove("active");
-    }
+// Show Main Menu
+function showMainMenu() {
+  document.querySelector('.back-button').style.display = 'none';
+  document.getElementById("cardContainer").classList.add("active");
+  document.getElementById("detailedView").classList.remove("active");
+  document.getElementById("aboutUs").classList.remove("active");
+  document.getElementById("mapSection").classList.remove("active");
 
-    // Function to show category details
-    function showCategory(category) {
-      document.querySelector('.back-button').style.display = 'block';
-      const detailedView = document.getElementById("detailedView");
-      detailedView.classList.add("active");
-      detailedView.innerHTML = categories[category].map(place => 
-        `<div class="card">
-          <img src="${place.imageUrl}" alt="${place.title}">
-          <h3>${place.title}</h3>
-          <p>${place.description}</p>
-        </div>`
-      ).join('');
+  // Close the menu if open
+  const navLinks = document.getElementById('navLinks');
+  navLinks.classList.remove('active');
+}
 
-      // If category is 'safety', add safety tips
-      if (category === 'safety') {
-        detailedView.innerHTML += `
-          <div class="safety-tips">
-            <h3>Safety Tips in CDMX</h3>
-            <ul>
-              <li>Stay aware of your surroundings, especially in crowded places.</li>
-              <li>Keep your belongings secure and avoid displaying valuables.</li>
-              <li>Use reputable transportation services like Uber or authorized taxis.</li>
-              <li>Learn basic Spanish phrases to communicate effectively.</li>
-              <li>Avoid walking alone at night in unfamiliar areas.</li>
-              <li>Keep emergency contacts handy in your phone.</li>
-              <li>Stay updated on local news and any travel advisories.</li>
-              <li>Respect local customs and traditions.</li>
-              <li>Keep copies of important documents in a safe place.</li>
-              <li>Trust your instincts—if something feels off, seek help.</li>
-            </ul>
-          </div>
-        `;
-      }
 
-      document.getElementById("cardContainer").classList.remove("active");
-      document.getElementById("aboutUs").classList.remove("active");
-      document.getElementById("mapSection").classList.remove("active");
-    }
+// Function to show category details
+function showCategory(category) {
+  document.querySelector('.back-button').style.display = 'block';
+  const detailedView = document.getElementById("detailedView");
+  detailedView.classList.add("active");
+  detailedView.innerHTML = categories[category].map(place => 
+    `<div class="card">
+      <img src="${place.imageUrl}" alt="${place.title}">
+      <h3>${place.title}</h3>
+      <p>${place.description}</p>
+    </div>`
+  ).join('');
 
-    // Initialize Main Menu on Page Load
-    document.addEventListener("DOMContentLoaded", function() {
-      showMainMenu();
-    });
+  // If category is 'safety', add safety tips
+  if (category === 'safety') {
+    detailedView.innerHTML += `
+      <div class="safety-tips">
+        <h3>Safety Tips in CDMX</h3>
+        <ul>
+          <li>Stay aware of your surroundings, especially in crowded places.</li>
+          <li>Keep your belongings secure and avoid displaying valuables.</li>
+          <li>Use reputable transportation services like Uber or authorized taxis.</li>
+          <li>Learn basic Spanish phrases to communicate effectively.</li>
+          <li>Avoid walking alone at night in unfamiliar areas.</li>
+          <li>Keep emergency contacts handy in your phone.</li>
+          <li>Stay updated on local news and any travel advisories.</li>
+          <li>Respect local customs and traditions.</li>
+          <li>Keep copies of important documents in a safe place.</li>
+          <li>Trust your instincts—if something feels off, seek help.</li>
+        </ul>
+      </div>
+    `;
+  }
 
-    /* 
-      === IMPORTANT ===
-      Please ensure that your 'const categories' object is defined here.
-      Example:
-      const categories = {
-        restaurants: [ ... ],
-        accommodations: [ ... ],
-        // other categories
-      };
-    */
+  document.getElementById("cardContainer").classList.remove("active");
+  document.getElementById("aboutUs").classList.remove("active");
+  document.getElementById("mapSection").classList.remove("active");
+}
+
+// Initialize Main Menu on Page Load
+document.addEventListener("DOMContentLoaded", function() {
+  showMainMenu();
+});
+
+/* 
+  === IMPORTANT ===
+  Ensure that your 'const categories' object is defined here.
+  Example:
+  const categories = {
+    restaurants: [ ... ],
+    accommodations: [ ... ],
+    // other categories
+  };
+*/
    const categories = {
   restaurants: [
     { title: "Sud 777", description: "Top-ranked globally with a creative twist on Mexican cuisine.", imageUrl: "https://i.imgur.com/BhGzKlD.png" },
@@ -310,41 +315,49 @@ function toggleMenu() {
     { title: "Tianguis Cultural del Chopo", description: "Alternative market for music, fashion, and art.", imageUrl: "https://i.imgur.com/BhGzKlD.png" },
     { title: "Plaza Garibaldi", description: "Famous for mariachi music and souvenirs.", imageUrl: "https://i.imgur.com/Spb15z8.png" }
   ]
+  // Add other categories with similar structure...
 };
 
-    // Google Maps Integration
-    function initMap() {
-      // Prevent multiple initializations
-      if (window.mapInitialized) return;
-      window.mapInitialized = true;
+// Google Maps Integration
+function initMap() {
+  // Prevent multiple initializations
+  if (window.mapInitialized) return;
+  window.mapInitialized = true;
 
-      const mexicoCity = { lat: 19.432608, lng: -99.133209 };
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 12,
-        center: mexicoCity,
-      });
-      
-      const keyPlaces = [
-        { position: { lat: 19.426, lng: -99.163 }, title: "Frida Kahlo Museum" },
-        { position: { lat: 19.428, lng: -99.181 }, title: "Museo Nacional de Antropología" },
-        { position: { lat: 19.430, lng: -99.141 }, title: "Soumaya Museum" },
-        { position: { lat: 19.434, lng: -99.142 }, title: "Museo Tamayo" },
-        { position: { lat: 19.435, lng: -99.163 }, title: "MUAC" },
-        { position: { lat: 19.439, lng: -99.174 }, title: "Museo Jumex" },
-        { position: { lat: 19.426, lng: -99.142 }, title: "Laboratorio Arte Alameda" },
-        { position: { lat: 19.420, lng: -99.131 }, title: "Casa Luis Barragán" },
-        { position: { lat: 19.440, lng: -99.185 }, title: "Museo de Arte Moderno" },
-        { position: { lat: 19.428, lng: -99.169 }, title: "Museo de Historia Natural" }
-        // Add more key places with their coordinates as needed
-      ];
-      
-      keyPlaces.forEach(place => {
-        new google.maps.Marker({
-          position: place.position,
-          map: map,
-          title: place.title,
-        });
-      });
+  const mexicoCity = { lat: 19.432608, lng: -99.133209 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
+    center: mexicoCity,
+  });
+  
+  const keyPlaces = [
+    { position: { lat: 19.426, lng: -99.163 }, title: "Frida Kahlo Museum" },
+    // Add more key places here...
+  ];
+  
+  keyPlaces.forEach(place => {
+    new google.maps.Marker({
+      position: place.position,
+      map: map,
+      title: place.title,
+    });
+  });
+}
+
+// Function to toggle the dropdown menu visibility
+function toggleDropdown() {
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  dropdownMenu.classList.toggle("show");
+}
+
+// Hide the dropdown when clicking outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown-button')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      if (dropdowns[i].classList.contains('show')) {
+        dropdowns[i].classList.remove('show');
+      }
     }
-
- 
+  }
+};
